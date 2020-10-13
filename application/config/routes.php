@@ -52,4 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+<<<<<<< HEAD
 $route['karyawan'] = 'karyawan/overview';
+=======
+>>>>>>> 949a4fa2b46cf06be86b5c0adf92943580dffb96
