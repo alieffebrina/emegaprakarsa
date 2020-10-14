@@ -117,13 +117,5 @@ class Karyawan_model extends CI_Model
         return $this->db->delete($this->_table, array("product_id" => $id));
 	}
 
-	private function _deleteImage($id)
-	{
-		$product = $this->getById($id);
-		if ($product->image != "default.jpg") {
-			$filename = explode(".", $product->image)[0];
-			return array_map('unlink', glob(FCPATH."upload/product/$filename.*"));
-		}
-	}
 
 }
