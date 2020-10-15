@@ -31,8 +31,7 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('template/header');
 		$data['menu'] = $this->Menu_model->getAll();
-		$dati['submenu'] = $this->Menu_model->getAll();
-		$this->load->view('template/sidebar', $data, $dati);
+		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/index');
 		$this->load->view('template/footer');
 	}

@@ -15,23 +15,23 @@ class Mastercustomer_model extends CI_Model
     {
         return [
             ['field' => 'namacustomer',
-            'label' => 'Nama',
+            'label' => 'nama',
             'rules' => 'required'],
 
             ['field' => 'alamat',
-            'label' => 'Alamat',
+            'label' => 'alamat',
             'rules' => 'required'],
 
             ['field' => 'id_kota',
-            'label' => 'Kota',
+            'label' => 'kota',
             'rules' => 'required'],
 
             ['field' => 'id_provinsi',
-            'label' => 'Provinsi',
+            'label' => 'provinsi',
             'rules' => 'required'],
 
             ['field' => 'id_kecamatan',
-            'label' => 'Kecamatan',
+            'label' => 'kecamatan',
             'rules' => 'required']
         ];
     }

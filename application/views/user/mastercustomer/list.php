@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <?php $this->load->view("template/header.php") ?>
+  <?php $this->load->view("user/template/header.php") ?>
 </head>
 
 <body id="page-top">
@@ -16,7 +16,7 @@
 
       <div class="container-fluid">
 
-        <?php $this->load->view("anggota/_partials/breadcrumb.php") ?>
+        
 <body class="hold-transition skin-blue sidebar-mini">
   <div id="wrapper">
     <div id="content-wrapper">

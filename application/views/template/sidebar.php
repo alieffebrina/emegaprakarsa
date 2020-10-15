@@ -16,7 +16,7 @@
       <!-- search form -->
       <form action="#" method="get" class="sidebar-form">
         <div class="input-group">
-          <input type="text" name="q" class="form-control" placeholder="Search...">
+'          <input type="text" name="q" class="form-control" placeholder="Search...">
           <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i>
                 </button>
@@ -29,7 +29,7 @@
         <li class="header">MAIN NAVIGATION</li> 
 
       <?php 
-      foreach($menu as $im){ 
+      foreach($menu as $im){
        ?>
         <li class="treeview">
           <a href="#">
@@ -39,22 +39,21 @@
             </span>
           </a>
           <?php 
-          $sub = $this->db->query("select * from tb_submenu where id_menus = $im->id_menu")->result();
-          foreach ($sub as $ksub) {
-            
-          
-          ?>
-          <ul class="treeview-menu">
-            <li><a href="#">
+ 
+       $sub = $this->db->query("select * from tb_submenu where id_menus = $im->id_menu");
+       foreach ($sub->result() as $key) {
 
-              <i class="fa fa-circle-o"><?php echo  $ksub->submenu ?></i> </a></li>
-              <i>jasgdi</i>
-            
-          </ul>
-        </li>
-      <?php } ?>
+          ?>
+            <li><a href="<?php echo site_url($key->linksubmenu) ?>">
+
+              <i class="fa fa-circle-o"> <?php echo  $key->submenu ?></i> </a>
+            </li>
+          </li>
+
+              
+      <?php  } ?>
           <?php } ?>
+
     </section>
     <!-- /.sidebar -->
   </aside>
-  <?php // } ?>

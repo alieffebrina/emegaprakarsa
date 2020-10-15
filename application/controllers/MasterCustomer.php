@@ -7,15 +7,21 @@ class MasterCustomer extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->load->model("mastercustomer_model");
+        $this->load->model('Menu_model');
+        $this->load->model('mastercustomer_model');
+        $this->load->model('Provinsi_model');
+        $this->load->model('Kota_model');
         $this->load->library('form_validation');
-        $this->load->model("mastercustomer_model");
     }
 
     public function index()
     {
+        $this->load->view('template/header');
+        $data['menu'] = $this->Menu_model->getAll();
+        $this->load->view('template/sidebar', $data);
         $data["mastercustomer"] = $this->mastercustomer_model->getAll();
-        $this->load->view("user/mastercustomer/list", $data);
+        $this->load->view("customer/customer", $data);
+        $this->load->view('template/footer');
     }
 
     public function add()
@@ -28,13 +34,19 @@ class MasterCustomer extends CI_Controller
             $mastercustomer->save();
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         }
+        $data['menu'] = $this->Menu_model->getAll();
+        $this->load->view('template/header', $data);
+        $this->load->view('template/sidebar', $data);
+        $data['name_prov'] = $this->Provinsi_model->getAll();
+        $data['name_kota'] = $this->Kota_model->getAll();
+        $this->load->view('customer/tambah', $data);
 
-        $this->load->view("user/mastercustomer/new_form");
+        $this->load->view('template/footer', $data);
     }
 
     public function edit($id = null)
     {
-        if (!isset($id)) redirect('user/mastercustomer');
+        if (!isset($id)) redirect('customer/edit');
        
         $mastercustomer = $this->mastercustomer_model;
         $validation = $this->form_validation;
@@ -48,7 +60,7 @@ class MasterCustomer extends CI_Controller
         $data["mastercustomer"] = $mastercustomer->getById($id);
         if (!$data["mastercustomer"]) show_404();
         
-        $this->load->view("user/mastercustomer/edit_form", $data);
+        $this->load->view("customer/edit", $data);
     }
 
     public function delete($id=null)
