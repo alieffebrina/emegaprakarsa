@@ -52,4 +52,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['customer'] = 'user/customer';
+
+
+$route['Login'] = 'C_Login';
+
+//customer
+$route['Customer'] = 'C_Customer';
+$route['Customer-add'] = 'C_Customer/add';
+$route['Customer-edit/(:any)'] = 'C_Customer/edit/$1';
+$route['Customer-view/(:any)'] = 'C_Customer/view/$1';
+
+//tipeuser
+$route['Tipeuser'] = 'C_Tipeuser';
+$route['Tipeuser-edit/(:any)'] = 'C_Tipeuser/edit/$1';
+
+//dept
+$route['Dept'] = 'C_Dept';
+$route['Dept-edit/(:any)'] = 'C_Dept/edit/$1';

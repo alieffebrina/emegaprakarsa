@@ -23,14 +23,16 @@ class Welcome extends CI_Controller {
 		parent::__construct();
 		$this->load->helper(array('form','url'));
 		$this->load->library('session');
-		$this->load->model('Menu_model');
+		$this->load->model('M_Setting');
 
 	}
 
 	public function index()
 	{
 		$this->load->view('template/header');
-		$data['menu'] = $this->Menu_model->getAll();
+
+		$tipeuser = $this->session->userdata('tipeuser');
+        $data['menu'] = $this->M_Setting->getmenu1($tipeuser);
 		$this->load->view('template/sidebar', $data);
 		$this->load->view('template/index');
 		$this->load->view('template/footer');
