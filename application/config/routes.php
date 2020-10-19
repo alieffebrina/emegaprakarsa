@@ -69,3 +69,13 @@ $route['Tipeuser-edit/(:any)'] = 'C_Tipeuser/edit/$1';
 //dept
 $route['Dept'] = 'C_Dept';
 $route['Dept-edit/(:any)'] = 'C_Dept/edit/$1';
+
+//staf
+$route['User'] = 'C_User';
+$route['User-add'] = 'C_User/add';
+$route['User-edit/(:any)'] = 'C_User/edit/$1';
+$route['User-view/(:any)'] = 'C_User/view/$1';
+
+//jenispekerjaan
+$route['Jenispekerjaan'] = 'C_MPekerjaan';
+$route['Jenispekerjaan-edit/(:any)'] = 'C_MPekerjaan/edit/$1';
